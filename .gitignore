@@ -164,3 +164,9 @@ cython_debug/
 # Files for Models
 *.pth
 *.png
+
+# Ignore Folder with CIFAR10 and CIFAR100 Datasets
+cka/data/*
+
+# Ignore Checkpoints/Zips of Checkpoints for Repository
+checkpoints/checkpoints*

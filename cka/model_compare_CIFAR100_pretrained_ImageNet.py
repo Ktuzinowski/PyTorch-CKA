@@ -368,17 +368,7 @@ if __name__ == "__main__":
                 _ = self.model2(x2.to(self.device))
 
                 for i, (name1, feat1) in enumerate(self.model1_features.items()):
-                    # print(f"Name of feature {name1}")
-                    # if len(feat1) == 2 and "self_attention" in name1:
-                    #     feat1 = feat1[0]
-                    # X = feat1.flatten(1)
-                    # if X.shape[1] > X.shape[0]:
-                    #     print(f"Shape that is being changed {X.shape}")
-                    #     X = X.transpose(0, 1)
-                    # print(f"Preprocessing shape of X={feat1.shape}")
                     X = feat1[:, 0, :]
-                    # print(f"Current Shape X={X.shape}")
-                    X = X.transpose(0, 1)
                     X = X.flatten(1)
                     
                     K = X @ X.t()
@@ -386,14 +376,7 @@ if __name__ == "__main__":
                     self.hsic_matrix[i, :, 0] += self._HSIC(K, K) / num_batches
 
                     for j, (name2, feat2) in enumerate(self.model2_features.items()):
-                        # print(f"Name of feature {name2}")
-                        # if len(feat2) == 2 and "self_attention" in name2:
-                        #     feat2 = feat2[0]
-                        # print(f"Preprocessing shape of Y={feat2.shape}")
                         Y = feat2[:, 0, :]
-                        # print(f"Current Shape Y={Y.shape}")
-                        # Y = feat2.flatten(1)
-                        Y = Y.transpose(0, 1)
                         Y = Y.flatten(1)
                         
                         L = Y @ Y.t()
@@ -405,10 +388,7 @@ if __name__ == "__main__":
             self.hsic_matrix = self.hsic_matrix[:, :, 1] / (self.hsic_matrix[:, :, 0].sqrt() *
                                                             self.hsic_matrix[:, :, 2].sqrt())
 
-            # self.hsic_matrix = torch.nan_to_num(self.hsic_matrix, nan=0.0)
             assert not torch.isnan(self.hsic_matrix).any(), "HSIC computation resulted in NANs"
-            # Replace negative values with zero
-            # self.hsic_matrix = torch.clamp(self.hsic_matrix, min=0.0)
         
         def do_nothing_but_print_shapes(self,
                                         dataloader1: DataLoader,
@@ -438,53 +418,11 @@ if __name__ == "__main__":
                 self.model1_features = {}
                 self.model2_features = {}
                 _ = self.model1(x1.to(self.device))
-                # _ = self.model2(x2.to(self.device))
 
                 for i, (name1, feat1) in enumerate(self.model1_features.items()):
                     print(f"Name of feature {name1}")
                     if len(feat1) == 2:
                         feat1 = feat1[0]
-                #     # if len(feat1) == 2 and "self_attention" in name1:
-                #     #     feat1 = feat1[0]
-                #     # X = feat1.flatten(1)
-                #     # if X.shape[1] > X.shape[0]:
-                #     #     print(f"Shape that is being changed {X.shape}")
-                #     #     X = X.transpose(0, 1)
-                #     # print(f"Preprocessing shape of X={feat1.shape}")
-                #     # print(X.shape)
-                #     # X = feat1[:, 0, :]
-                    print(f"Current Shape X={feat1.shape}")
-                #     # X = X.transpose(0, 1)
-                #     # X = X.flatten(1)
-                    
-                #     # K = X @ X.t()
-                #     # K.fill_diagonal_(0.0)
-                #     # self.hsic_matrix[i, :, 0] += self._HSIC(K, K) / num_batches
-
-                #     for j, (name2, feat2) in enumerate(self.model2_features.items()):
-                #         # print(f"Name of feature {name2}")
-                #         # if len(feat2) == 2 and "self_attention" in name2:
-                #         #     feat2 = feat2[0]
-                #         # print(f"Preprocessing shape of Y={feat2.shape}")
-                #         # Y = feat2[:, 0, :]
-                #         print(f"Current Shape Y={feat2.shape}")
-                #         # Y = feat2.flatten(1)
-                #         # Y = Y.transpose(0, 1)
-                #         # Y = Y.flatten(1)
-                        
-            #             L = Y @ Y.t()
-            #             L.fill_diagonal_(0)
-            #             assert K.shape == L.shape, f"Feature shape mistach! {K.shape}, {L.shape}"
-
-            #             self.hsic_matrix[i, j, 1] += self._HSIC(K, L) / num_batches
-            #             self.hsic_matrix[i, j, 2] += self._HSIC(L, L) / num_batches
-            # self.hsic_matrix = self.hsic_matrix[:, :, 1] / (self.hsic_matrix[:, :, 0].sqrt() *
-            #                                                 self.hsic_matrix[:, :, 2].sqrt())
-
-            # self.hsic_matrix = torch.nan_to_num(self.hsic_matrix, nan=0.0)
-            # assert not torch.isnan(self.hsic_matrix).any(), "HSIC computation resulted in NANs"
-            # Replace negative values with zero
-            # self.hsic_matrix = torch.clamp(self.hsic_matrix, min=0.0)
 
         def export(self) -> Dict:
             """
@@ -573,7 +511,7 @@ if __name__ == "__main__":
         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
     ])
 
-    bs = 2
+    bs = 100
 
     testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_test)
     val_loader = torch.utils.data.DataLoader(testset, batch_size=bs, shuffle=False, num_workers=4)
@@ -585,50 +523,29 @@ if __name__ == "__main__":
     model2.heads.head = nn.Linear(in_features=model2.heads.head.in_features, out_features=100)
 
     # Load the state dict here
-    model1_checkpoint = torch.load("checkpoints_cifar100_pretrained_imagenet/0_checkpoint.pth")
+    model1_checkpoint = torch.load("../checkpoints/checkpoints_cifar100_pretrained_imagenet/0_checkpoint.pth")
     model1.load_state_dict(model1_checkpoint)
-    model2_checkpoint = torch.load("checkpoints_cifar100_pretrained_imagenet/24_checkpoint.pth")
+    model2_checkpoint = torch.load("../checkpoints/checkpoints_cifar100_pretrained_imagenet/24_checkpoint.pth")
     model2.load_state_dict(model2_checkpoint)
 
     model1_layer_names = []
-    # CLS token here
-    # encoder.layers.encoder_layer_0.self_attention.out_proj
-    # counter = 2
-    # TODO: Compare tokens pairwise instead of just CLS token
-    # TODO: Possibly Average Pool 768 dimension embedding
-    # TODO (1): Print outputs of latent representations, and trick to reduce dimensions
-    # TODO: Use pretrained model on imagenet, plot mean attention distance for CIFAR10, deep layers high attention/small layers lower attention
-    # Include also from scratch ViT on CIFAR10
-    counter = 0
-    # Going to compare all possible CLS tokens
     suffix = "mlp.4"
     for name, _ in model1.named_modules():
         print(name)
     for name, layer in model1.named_modules():
-        # print(name)
         if name.endswith(suffix):
-            counter += 1
             model1_layer_names.append(name)
-            # if counter == :
-            #     break
     print(model1_layer_names)
     print(len(model1_layer_names))
-        # if counter == 3:
-        #     break
-        # if counter == 0:
-        #     break
-        # counter -= 1
-    # print("Layer names for model1", model1_layer_names)
+
     model1_name = "ViT 0%"
     model2_name = "ViT 100%"
-    # # torch.cuda.set_device(3)
+
     cka = CKA(model1, model2,
             model1_name=model1_name, model2_name=model2_name,
             device='cuda', model1_layers=model1_layer_names, model2_layers=model1_layer_names)
-    # model1_accuracy, model2_accuracy = cka.get_accuracy_for_models(val_loader)
-    # # print("This is the model1 accuracy", model1_accuracy, "This is the model2 accuracy", model2_accuracy)
-    # cka.do_nothing_but_print_shapes(val_loader)
+
     cka.compare(val_loader)
 
-    # # Do this last, verify the sizes of the shapes using CKA
+    # Do this last, verify the sizes of the shapes using CKA
     cka.plot_results(save_path="ViT_0_vs_100.png")
