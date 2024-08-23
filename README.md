@@ -3,7 +3,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">Downloading and Unzipping Checkpoints</a>
+      <a href="#checkpoints">Downloading and Unzipping Checkpoints</a>
     </li>
     <li>
       <a href="#">Downloading and Unzipping Checkpoints</a>
@@ -13,8 +13,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+<!-- Checkpoints -->
+## Checkpoints
 
 ### Prerequisites
 
