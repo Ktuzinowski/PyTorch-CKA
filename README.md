@@ -3,7 +3,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#environment-setup">Dependencies for Conda Environment</a>
+      <a href="#environment-setup">Environment Setup</a>
     </li>
     <li>
       <a href="#checkpoints">Checkpoints</a>
