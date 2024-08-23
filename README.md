@@ -21,6 +21,10 @@
   ```sh
   pip3 install torch torchvision
   ```
+* Gdown
+  ```sh
+  pip3 install gdown
+  ```
 
 <!-- Checkpoints -->
 ## Checkpoints
