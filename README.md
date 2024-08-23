@@ -53,13 +53,26 @@
 
 <!-- Centered Kernel Alignment (CKA) -->
 ## CKA
-
-1. CIFAR10 CKA for CLS Tokens
+### CIFAR10
+1. Small ViT Trained From Scratch
   ```sh
+  cd cka
   python model_compare_CIFAR10.py
   ```
-
-
+2. Pretrained ViT-B/16 on ImageNet
+  ```sh
+  python model_compare_CIFAR10_pretrained_ImageNet.py
+  ```
+### CIFAR100
+1. Small ViT Trained From Scratch
+  ```sh
+  cd cka
+  python model_compare_CIFAR100.py
+  ```
+2. Pretrained ViT-B/16 on ImageNet
+  ```sh
+  python model_compare_CIFAR100_pretrained_ImageNet.py
+  ```
 
 
 
