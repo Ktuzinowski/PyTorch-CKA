@@ -17,7 +17,7 @@
 <!-- Dependencies for Conda Environment -->
 ## Environment Setup
 
-* Pytorch (Find command at link [here.](https://pytorch.org/get-started/locally/)
+* Pytorch Find command at link [here.](https://pytorch.org/get-started/locally/)
   ```sh
   pip3 install torch torchvision
   ```
