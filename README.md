@@ -33,6 +33,10 @@
   ```
   pip3 install einops
   ```
+* Matplotlib
+  ```
+  pip3 install matplotlib
+  ```
 
 <!-- Checkpoints -->
 ## Checkpoints
@@ -50,7 +54,10 @@
 <!-- Centered Kernel Alignment (CKA) -->
 ## CKA
 
-1. 
+1. CIFAR10 CKA for CLS Tokens
+  ```sh
+  python model_compare_CIFAR10.py
+  ```
 
 
 
