@@ -34,6 +34,10 @@ Download checkpoints from Google Drive using **checkpoints/download_for_checkpoi
   ```sh
   python checkpoints/download_for_checkpoints.py
   ```
+Unzip all checkpoint zip files using **checkpoints/unzip_checkpoints.py", unzips all checkpoints into corresponding folders. Feel free to delete zip files afterwards if wanted.
+  ```sh
+  python checkpoints/unzip_checkpoints.py
+  ```
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Get a free API Key at [https://example.com](https://example.com)
