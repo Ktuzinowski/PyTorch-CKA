@@ -6,10 +6,10 @@
       <a href="#environment-setup">Dependencies for Conda Environment</a>
     </li>
     <li>
-      <a href="#checkpoints">Downloading and Unzipping Checkpoints</a>
+      <a href="#checkpoints">Checkpoints</a>
     </li>
     <li>
-      <a href="#">Downloading and Unzipping Checkpoints</a>
+      <a href="#cka">Centered Kernel Alignment (CKA)</a>
     </li>
   </ol>
 </details>
