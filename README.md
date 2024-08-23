@@ -15,7 +15,7 @@
 </details>
 
 <!-- Dependencies for Conda Environment -->
-### Environment Setup
+## Environment Setup
 
 * Pytorch
   ```sh
