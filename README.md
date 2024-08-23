@@ -29,7 +29,7 @@
 <!-- Checkpoints -->
 ## Checkpoints
 
-Download checkpoints from Google Drive using "checkpoints/download_for_checkpoints.py", downloads all zip files for CIFAR10 and CIFAR100 trained models.
+Download checkpoints from Google Drive using **checkpoints/download_for_checkpoints.py**, downloads all zip files for CIFAR10 and CIFAR100 trained models.
 * Download Checkpoints
   ```sh
   python checkpoints/download_for_checkpoints.py
