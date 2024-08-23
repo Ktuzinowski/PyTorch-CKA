@@ -33,7 +33,7 @@
   ```sh
   python checkpoints/download_for_checkpoints.py
   ```
-2. Unzip all checkpoint zip files using **checkpoints/unzip_checkpoints.py**, unzips all checkpoints into corresponding folders. Feel free to delete zip files afterwards.
+2. Unzip all checkpoint zip files using **checkpoints/unzip_checkpoints.py**, Unzips all checkpoints into corresponding folders. Feel free to delete zip files afterwards.
   ```sh
   python checkpoints/unzip_checkpoints.py
   ```
