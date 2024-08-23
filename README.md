@@ -29,12 +29,10 @@
 <!-- Checkpoints -->
 ## Checkpoints
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Download checkpoints from Google Drive using "checkpoints/download_for_checkpoints.py", downloads all zip files for CIFAR10 and CIFAR100 trained models.
+* Download Checkpoints
   ```sh
-  npm install npm@latest -g
+  python checkpoints/download_for_checkpoints.py
   ```
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
