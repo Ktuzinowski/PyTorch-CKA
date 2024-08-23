@@ -17,7 +17,7 @@
 <!-- Dependencies for Conda Environment -->
 ## Environment Setup
 
-* Pytorch
+* Pytorch (Find command at link [here.](https://pytorch.org/get-started/locally/)
   ```sh
   pip3 install torch torchvision
   ```
@@ -25,6 +25,15 @@
   ```sh
   pip3 install gdown
   ```
+* Six
+  ```
+  pip3 install six
+  ```
+* Einops
+  ```
+  pip3 install einops
+  ```
+* 
 
 <!-- Checkpoints -->
 ## Checkpoints
@@ -38,6 +47,11 @@
   ```sh
   python unzip_checkpoints.py
   ```
+
+<!-- Centered Kernel Alignment (CKA) -->
+## CKA
+
+1. 
 
 
 
