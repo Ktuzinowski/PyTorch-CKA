@@ -3,6 +3,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
+      <a href="#environment-setup">Dependencies for Conda Environment</a>
+    </li>
+    <li>
       <a href="#checkpoints">Downloading and Unzipping Checkpoints</a>
     </li>
     <li>
