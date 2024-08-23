@@ -29,12 +29,11 @@
 <!-- Checkpoints -->
 ## Checkpoints
 
-Download checkpoints from Google Drive using **checkpoints/download_for_checkpoints.py**, downloads all zip files for CIFAR10 and CIFAR100 trained models.
-* Download Checkpoints
+1. Download checkpoints from Google Drive using **checkpoints/download_for_checkpoints.py**, downloads all zip files for CIFAR10 and CIFAR100 trained models.
   ```sh
   python checkpoints/download_for_checkpoints.py
   ```
-Unzip all checkpoint zip files using **checkpoints/unzip_checkpoints.py", unzips all checkpoints into corresponding folders. Feel free to delete zip files afterwards if wanted.
+2. Unzip all checkpoint zip files using **checkpoints/unzip_checkpoints.py", unzips all checkpoints into corresponding folders. Feel free to delete zip files afterwards if wanted.
   ```sh
   python checkpoints/unzip_checkpoints.py
   ```
