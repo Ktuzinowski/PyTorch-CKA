@@ -14,7 +14,13 @@
   </ol>
 </details>
 
+<!-- Dependencies for Conda Environment -->
+### Environment Setup
 
+* Pytorch
+  ```sh
+  pip3 install torch torchvision
+  ```
 
 <!-- Checkpoints -->
 ## Checkpoints
